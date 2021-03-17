@@ -1,5 +1,5 @@
 .product {
-    width: 300px;
+    width: 290px;
     padding: 1rem;
     background: #fff;
     cursor: pointer;
@@ -49,45 +49,51 @@
     color: #f4f4f4;
 }
 
-@media (max-width: 1232px) {
+@media (max-width: 1252px) {
     .product {
         width: 360px;
     }
 }
 
-@media (max-width: 1115px) {
+@media (max-width: 1165px) {
     .product {
         width: 330px;
     }
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 1072px) {
     .product {
         width: 300px;
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 990px) {
     .product {
         width: 400px;
     }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 880px) {
     .product {
         width: 350px;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
     .product {
         width: 300px;
     }
 }
 
+@media (max-width: 678px) {
+    .product {
+        width: 280px;
+    }
+}
+
 @media (max-width: 630px) {
     .product {
-        width: 415px;
+        width: 435px;
     }
 }
 
