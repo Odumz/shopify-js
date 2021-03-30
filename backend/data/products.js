@@ -64,7 +64,7 @@ const products = [
     },
     {
         name: "Nice red and black shopping bags",
-        imageUrl: "hhttps://res.cloudinary.com/griffintech/image/upload/v1615981712/tutorials/pexels-karolina-grabowska-5625112_mtn6p3.jpg",
+        imageUrl: "https://res.cloudinary.com/griffintech/image/upload/v1615981712/tutorials/pexels-karolina-grabowska-5625112_mtn6p3.jpg",
         description: "lorem ipsu delagaines endophormic dulutate killamingi tila dun dis connect",
         price: 499,
         countInStock: 15

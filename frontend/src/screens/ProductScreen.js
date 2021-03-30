@@ -1,43 +1,70 @@
 import './ProductScreen.css';
 // import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const ProductScreen = () => {
+// Actions
+import { getProductDetails } from '../redux/actions/productActions';
+import { addToCart } from '../redux/actions/cartActions';
+
+const ProductScreen = ({match, history}) => {
+
+    const [ qty, setQty ] = useState(1);
+    const dispatch = useDispatch();
+
+    const productDetails = useSelector(state => state.getProductDetails);
+    const { loading, error, product } = productDetails;
+
+    useEffect(() => {
+        if (product && match.params.id !== product._id) {
+            dispatch(getProductDetails(match.params.id));
+        }
+    }, [dispatch, product, match]);
+
+    const addToCartHandler = () => {
+        dispatch(addToCart(product._id, qty));
+        history.push('/cart');
+    }
+
     return (
         <div className="productscreen">
-            <div className="productscreen_left">
-                <div className="left_image">
-                    <img src="https://res.cloudinary.com/griffintech/image/upload/v1615981712/tutorials/pexels-adrian-dorobantu-2300334_vnd6uo.jpg" alt="product name" />
-                </div>
-                <div className="left_info">
-                    <p className="left_name">Product 1</p>
-                    <p className="left_price">Price: $1999.99</p>
-                    <p className="left_description">Description: Ipsum qui elit adipisicing deserunt in ex eiusmod proident elit excepteur nisi reprehenderit excepteur.</p>
-                </div>
-            </div>
-            <div className="productscreen_right">
-                <div className="right_info">
-                    <p>
-                        Price: <span>$499.99</span>
-                    </p>
-                    <p>
-                        Status: <span>In stock</span>
-                    </p>
-                    <p>
-                        Qty
-                        <select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </p>
-                    <p>
-                        <button type="button">Add to Cart</button>
-                    </p>
-                </div>
-            </div>
+            {loading ? (<h2>Loading...</h2>) : error ? (<h2>{ error }</h2>) : (
+                <>
+                    <div className="productscreen_left">
+                        <div className="left_image">
+                            <img src={product.imageUrl} alt={product.name} />
+                        </div>
+                        <div className="left_info">
+                            <p className="left_name">{product.name}</p>
+                            <p className="left_price">{product.price}</p>
+                            <p className="left_description">{product.description}</p>
+                        </div>
+                    </div>
+                    <div className="productscreen_right">
+                        <div className="right_info">
+                            <p>
+                                Price: <span>${product.price}</span>
+                            </p>
+                            <p>
+                                Status:{" "} <span>{product.countInStock > 0 ? "In Stock" : "Out of Stock"}</span>
+                            </p>
+                            <p>
+                                Qty
+                                <select value={qty} onChange={(e) => setQty(e.target.value)}>
+                                    {[...Array(product.countInStock).keys()].map((x) => (
+                                        <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                    ))}
+                                </select>
+                            </p>
+                            <p>
+                                <button type="button" onClick={addToCartHandler}>Add to Cart</button>
+                            </p>
+                        </div>
+                    </div>
+                </>  
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default ProductScreen
+export default ProductScreen;
