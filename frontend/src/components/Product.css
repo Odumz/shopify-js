@@ -26,6 +26,7 @@
 .info_name {
     font-size: 1rem;
     overflow: hidden;
+    margin-top: 15px;
 }
 
 .info_description {
