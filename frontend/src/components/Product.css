@@ -1,5 +1,5 @@
 .product {
-    width: 300px;
+    width: 290px;
     padding: 1rem;
     background: #fff;
     cursor: pointer;
@@ -47,4 +47,64 @@
 .info_button:hover {
     background: #171717;
     color: #f4f4f4;
+}
+
+@media (max-width: 1252px) {
+    .product {
+        width: 360px;
+    }
+}
+
+@media (max-width: 1165px) {
+    .product {
+        width: 330px;
+    }
+}
+
+@media (max-width: 1072px) {
+    .product {
+        width: 300px;
+    }
+}
+
+@media (max-width: 990px) {
+    .product {
+        width: 400px;
+    }
+}
+
+@media (max-width: 880px) {
+    .product {
+        width: 350px;
+    }
+}
+
+@media (max-width: 780px) {
+    .product {
+        width: 300px;
+    }
+}
+
+@media (max-width: 678px) {
+    .product {
+        width: 280px;
+    }
+}
+
+@media (max-width: 630px) {
+    .product {
+        width: 435px;
+    }
+}
+
+@media (max-width: 500px) {
+    .product {
+        width: 360px;
+    }
+}
+
+@media (max-width: 400px) {
+    .product {
+        width: 300px;
+    }
 }
