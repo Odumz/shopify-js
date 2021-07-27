@@ -32,7 +32,7 @@ const Navbar = ({click}) => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/" className="shop_link">
                         {/* Icon */}
                         Shop
                     </Link>

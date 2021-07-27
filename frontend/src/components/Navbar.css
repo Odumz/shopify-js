@@ -39,6 +39,13 @@
     margin-left: 8px;
 }
 
+.shop_link:hover {
+    background: #dd219e;
+    padding: 10px;
+    border-radius: 8px;
+    color: #f4f4f4;
+}
+
 .cart_link {
     background: #333;
     padding: 10px;
